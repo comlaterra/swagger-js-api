@@ -1,0 +1,12 @@
+{
+  "browser": true,
+  "esnext": true,
+  "globals": {
+    "console": true,
+    "swaggerAPI": true
+  },
+  "globalstrict": false,
+  "quotmark": false,
+  "undef": true,
+  "unused": true
+}

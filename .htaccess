@@ -1,0 +1,29 @@
+<ifmodule mod_expires.c>
+	 ExpiresActive On
+	 ExpiresDefault A3600
+	 <FilesMatch ".(gif|jpg|jpeg|png|swf)$">
+	 ExpiresDefault A604800
+	 Header append Cache-Control "public"
+	 </FilesMatch>
+	 <FilesMatch ".(xml|txt|html)$">
+	 ExpiresDefault A604800
+	 Header append Cache-Control "public"
+	 </FilesMatch>
+</ifmodule>
+
+#Options -MultiViews
+RewriteEngine on
+
+RewriteBase /
+# ######################################################
+#						SCORES
+# ######################################################
+RewriteRule ^dev/api/1/postScore/? score.php?action=post
+RewriteRule ^dev/api/1/getScore score.php?action=get&userId=12
+
+# ######################################################
+#						ACHIEVEMENTS
+# ######################################################
+RewriteRule ^dev/api/1/updateAchievement/? achievement.php?action=update
+RewriteRule ^dev/api/1/getAchievement/? achievement.php?action=get
+RewriteRule ^dev/api/1/getAchievement/([a-zA-Z0-9-]+)/? achievement.php?action=get&achievementId=$1

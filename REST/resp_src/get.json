@@ -1,0 +1,356 @@
+[{
+	"call": "https://beta.calendar42.com/app/django/api/docs/api-docs/",
+	"answer": {
+		"info":{
+			"description":"",
+			"license":"",
+			"title":"",
+			"contact":"",
+			"termsOfServiceUrl":"",
+			"licenseUrl":""
+		},
+		"basePath":"https://beta.calendar42.com/app/django/api/docs/api-docs",
+		"swaggerVersion":"1.2",
+		"apiVersion":"2",
+		"apis":[
+			{
+				"path":"/api/v2/calendars"
+			},
+			{
+				"path":"/api/v2/event-subscriptions"
+			},
+			{
+				"path":"/api/v2/events"
+			},
+			{
+				"path":"/api/v2/locations"
+			},
+			{
+				"path":"/api/v2/positions"
+			},
+			{
+				"path":"/api/v2/services"
+			},
+			{
+				"path":"/api/v2/user-attendances"
+			}
+		]
+	}
+},{
+	"call":"https://beta.calendar42.com/app/django/api/docs/api-docs/api/v2/calendars",
+	"answer":{
+		"swaggerVersion": "1.2",
+		"apis": [
+			{
+				"operations": [
+					{
+						"parameters": [
+							{
+								"name": "limit",
+								"format": "int32",
+								"paramType": "query",
+								"required": false,
+								"type": "integer",
+								"defaultValue": 10,
+								"description": ""
+							},
+							{
+								"name": "offset",
+								"format": "int32",
+								"paramType": "query",
+								"required": false,
+								"type": "integer",
+								"defaultValue": 0,
+								"description": ""
+							},
+							{
+								"name": "sync_token",
+								"paramType": "query",
+								"required": false,
+								"type": "string",
+								"description": ""
+							},
+							{
+								"name": "ids",
+								"paramType": "query",
+								"required": false,
+								"type": "string",
+								"description": "Array of calendars ids. To filter on specific calendars,                 e.g. <strong><code>[asdb796sd987dsbiouds]</strong></code>"
+							},
+							{
+								"name": "service_ids",
+								"paramType": "query",
+								"required": false,
+								"type": "string",
+								"description": "Array of service ids. Only return calendars that are                 part of these services, e.g. <strong><code>[asdb796sd987dsbiouds]</strong></code>"
+							},
+							{
+								"name": "categories",
+								"paramType": "query",
+								"required": false,
+								"type": "string",
+								"description": "Array of categories, e.g. <strong><code>[cat1,cat2]</strong></code>"
+							}
+						],
+						"nickname": "Calendar_Api_get_calendars",
+						"notes": "",
+						"summary": "",
+						"type": "CalendarSerializer",
+						"method": "GET"
+					}
+				],
+				"path": "/api/v2/calendars/",
+				"description": ""
+			},
+			{
+				"operations": [
+					{
+						"parameters": [
+							{
+							"paramType": "path",
+							"required": true,
+							"type": "string",
+							"name": "id"
+							}
+						],
+						"nickname": "Calendar_Api_get_calendar_by_id",
+						"notes": "",
+						"summary": "",
+						"type": "CalendarSerializer",
+						"method": "GET"
+					}
+				],
+				"path": "/api/v2/calendars/{id}/",
+				"description": ""
+			}
+		],
+		"models": {
+			"CalendarSerializer": {
+				"required": [
+				"id",
+				"created",
+				"service_id",
+				"state_label",
+				"name",
+				"description",
+				"category",
+				"color",
+				"image",
+				"sync_token",
+				"url",
+				"calendar_type",
+				"first_import",
+				"import_failed",
+				"permission",
+				"previous_permission"
+				],
+				"id": "CalendarSerializer",
+				"properties": {
+				"id": {
+					"description": "Unique Calendar id, e.g. <strong><code>42abc42def42ghi42</code></strong>",
+					"required": false,
+					"readOnly": true,
+					"type": "string"
+				},
+				"created": {
+					"description": "Date time of creation, e.g. <strong><code>2015-03-24T14:29:47.613Z</code></strong>",
+					"format": "string",
+					"required": true,
+					"readOnly": false,
+					"type": "datetime"
+				},
+				"service_id": {
+					"description": "Service id to which the calendar is related, e.g. <strong><code>42abc42def42ghi42</code></strong>",
+					"required": false,
+					"readOnly": false,
+					"type": "string"
+				},
+				"state_label": {
+					"description": "The state of an event given the service it belongs to, e.g. <strong><code>InitialState</code></strong>",
+					"required": false,
+					"readOnly": true,
+					"type": "string"
+				},
+				"name": {
+					"description": "The name of the calendar, e.g. <strong><code>The calendar of everything</code></strong>",
+					"required": false,
+					"readOnly": false,
+					"type": "string"
+				},
+				"description": {
+					"description": "The description of the calendar, e.g. <strong><code>                The calendar that contains all the atoms of the galaxy</code></strong>",
+					"required": false,
+					"readOnly": false,
+					"type": "string"
+				},
+				"category": {
+					"description": "The category of the calendar, e.g. <strong><code>outerspace</code></strong>",
+					"required": false,
+					"readOnly": false,
+					"type": "string"
+				},
+				"color": {
+					"description": "The color of the calendar in hsla, e.g. <strong><code>hsla(319, 100%, 50%, 1)</code></strong>",
+					"required": false,
+					"readOnly": false,
+					"type": "string"
+				},
+				"image": {
+					"description": "URL to an image related to the calendar, e.g.                 <strong><code>//calendar42.com/uploads/42abc42def42ghi42/42jkl42mno42pgr42_84x84.jpg</code></strong>",
+					"required": false,
+					"readOnly": false,
+					"type": "string"
+				},
+				"sync_token": {
+					"description": "Token related to last modification of the calendar, e.g. <strong><code>42424242</code></strong>",
+					"format": "int32",
+					"required": false,
+					"readOnly": false,
+					"type": "integer"
+				},
+				"url": {
+					"description": "URL to the source of the calendar, for instance an .ics feed,                 e.g. <strong><code>http://random.domain/feed</code></strong>",
+					"required": false,
+					"readOnly": false,
+					"type": "string"
+				},
+				"calendar_type": {
+					"description": "Type of calendar, e.g.  <strong><code>personal</code></strong>",
+					"required": false,
+					"readOnly": false,
+					"type": "string"
+				},
+				"first_import": {
+					"description": "Date time of first successful import, e.g. <strong><code>2015-03-24T14:29:47.613Z</code></strong>",
+					"format": "string",
+					"required": false,
+					"readOnly": false,
+					"type": "datetime"
+				},
+				"import_failed": {
+					"description": "Whether the last import failed, e.g.  <strong><code>false</code></strong>",
+					"format": "string",
+					"required": false,
+					"readOnly": false,
+					"type": "datetime"
+				},
+				"permission": {
+					"description": "String that defines the permission that the                 requester has over this calendar, e.g.                 <strong><code>subscribed_write</code></strong> This field is requester dependent",
+					"format": "int32",
+					"required": false,
+					"readOnly": false,
+					"type": "integer"
+				},
+				"previous_permission": {
+					"description": "String that defines the previous permission that                 the requester had over this calendar, e.g.                 <strong><code>invited_write</code></strong> This field is requester dependent",
+					"format": "int32",
+					"required": false,
+					"readOnly": false,
+					"type": "integer"
+				}
+			  }
+			},
+			"WriteCalendarSerializer": {
+				"required": [
+					"created"
+			  	],
+				"id": "WriteCalendarSerializer",
+				"properties": {
+					"created": {
+						"description": "Date time of creation, e.g. <strong><code>2015-03-24T14:29:47.613Z</code></strong>",
+						"format": "string",
+						"required": true,
+						"readOnly": false,
+						"type": "datetime"
+					},
+					"service_id": {
+						"description": "Service id to which the calendar is related, e.g. <strong><code>42abc42def42ghi42</code></strong>",
+						"required": false,
+						"readOnly": false,
+						"type": "string"
+					},
+					"name": {
+						"description": "The name of the calendar, e.g. <strong><code>The calendar of everything</code></strong>",
+						"required": false,
+						"readOnly": false,
+						"type": "string"
+					},
+					"description": {
+						"description": "The description of the calendar, e.g. <strong><code>                The calendar that contains all the atoms of the galaxy</code></strong>",
+						"required": false,
+						"readOnly": false,
+						"type": "string"
+					},
+					"category": {
+						"description": "The category of the calendar, e.g. <strong><code>outerspace</code></strong>",
+						"required": false,
+						"readOnly": false,
+						"type": "string"
+					},
+					"color": {
+						"description": "The color of the calendar in hsla, e.g. <strong><code>hsla(319, 100%, 50%, 1)</code></strong>",
+						"required": false,
+						"readOnly": false,
+						"type": "string"
+					},
+					"image": {
+						"description": "URL to an image related to the calendar, e.g.                 <strong><code>//calendar42.com/uploads/42abc42def42ghi42/42jkl42mno42pgr42_84x84.jpg</code></strong>",
+						"required": false,
+						"readOnly": false,
+						"type": "string"
+					},
+					"sync_token": {
+						"description": "Token related to last modification of the calendar, e.g. <strong><code>42424242</code></strong>",
+						"format": "int32",
+						"required": false,
+						"readOnly": false,
+						"type": "integer"
+					},
+					"url": {
+						"description": "URL to the source of the calendar, for instance an .ics feed,                 e.g. <strong><code>http://random.domain/feed</code></strong>",
+						"required": false,
+						"readOnly": false,
+						"type": "string"
+					},
+					"calendar_type": {
+						"description": "Type of calendar, e.g.  <strong><code>personal</code></strong>",
+						"required": false,
+						"readOnly": false,
+						"type": "string"
+					},
+					"first_import": {
+						"description": "Date time of first successful import, e.g. <strong><code>2015-03-24T14:29:47.613Z</code></strong>",
+						"format": "string",
+						"required": false,
+						"readOnly": false,
+						"type": "datetime"
+					},
+					"import_failed": {
+						"description": "Whether the last import failed, e.g.  <strong><code>false</code></strong>",
+						"format": "string",
+						"required": false,
+						"readOnly": false,
+						"type": "datetime"
+					},
+					"permission": {
+						"description": "String that defines the permission that the                 requester has over this calendar, e.g.                 <strong><code>subscribed_write</code></strong> This field is requester dependent",
+						"format": "int32",
+						"required": false,
+						"readOnly": false,
+						"type": "integer"
+					},
+					"previous_permission": {
+						"description": "String that defines the previous permission that                 the requester had over this calendar, e.g.                 <strong><code>invited_write</code></strong> This field is requester dependent",
+						"format": "int32",
+						"required": false,
+						"readOnly": false,
+						"type": "integer"
+					}
+				}
+			}
+		},
+		"basePath": "https://beta.calendar42.com",
+		"resourcePath": "/api/v2/calendars",
+		"apiVersion": "2"
+	}
+}]
