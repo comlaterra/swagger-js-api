@@ -1,3 +1,1 @@
-window.onload = function(){
-	var API = new swaggerAPI();
-};
+var API = new swaggerAPI();
