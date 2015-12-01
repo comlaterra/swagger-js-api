@@ -36,3 +36,4 @@ The mapping of the current object should be possible to replace. In this way wil
 4. Should the call method get the basic config params from the 'this' or as a params? Params because in this sense it is a 'util' method that just deals witht the technology over the component is running. Should be possible to abstract easily.
 4. After an initial implementation the code will be converted to EMS6 and will us Babel to make it compatible with older browsers.
 4. The very first coding approach will be purely personal and focused on the maximum comprehension of the code. So shameless code please!
+4. To set the name of the operations to perform, a n optional object will be expected, with a mapping between nicknames and method names. If a nickname is not there, it will be used as a operation name. This is required because the 
