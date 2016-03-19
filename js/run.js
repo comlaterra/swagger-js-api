@@ -5,7 +5,7 @@ var API;
 function run(){
   var swaggerOptions = {
     "serverInfo":{
-      "basePath": 'http://demo.calendar42.com/api'
+      "basePath": 'https://demo.calendar42.com/api'
     },
     "operations":{
       "Calendar_Api_get_calendars":"getCalendars",
