@@ -21,6 +21,9 @@ function run(){
       "Search_Event_Api_search_events" : "searchEvents",
       "Service_Api_get_service_by_id" : "getServiceById",
       "User_Attendance_Api_get_attendances" : "getAttendances"
+    },
+    onReady: function(){
+      console.log("The API is loaded");
     }
   };
   API = new swaggerAPI(swaggerOptions);
