@@ -24,6 +24,11 @@ function run(){
     },
     onReady: function(){
       console.log("The API is loaded");
+      API.events.getEvents({
+        params:{
+          include_removed_events: false
+        }
+      });
     }
   };
   API = new swaggerAPI(swaggerOptions);
