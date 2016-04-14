@@ -22,6 +22,7 @@ function run(){
       "Service_Api_get_service_by_id" : "getServiceById",
       "User_Attendance_Api_get_attendances" : "getAttendances"
     },
+    "forceParams": true,
     onReady: function(){
       console.log("The API is loaded");
       API.events.getEvents({
